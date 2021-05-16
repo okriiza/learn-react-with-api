@@ -7,6 +7,8 @@ import ProdukDetail from './home/component/produkdetail'
 import Mahasiswa from './dataapi/mahasiswa';
 import Tambahmahasiswa from './dataapi/tambahmahasiswa';
 import Editmahasiswa from './dataapi/editmahasiswa';
+import Claascom from './hooks/class/claascom';
+import Funcom from './hooks/functional/funcom';
 
 const App = () => {
   return (
@@ -19,7 +21,8 @@ const App = () => {
         <Route exact path='/mahasiswa' component={Mahasiswa} />
         <Route exact path='/mahasiswa/tambah' component={Tambahmahasiswa} />
         <Route exact path='/mahasiswa/edit' component={Editmahasiswa} />
-
+        <Route exact path='/kelas' component={Claascom} />
+        <Route exact path='/hooks' component={Funcom} />
       </switch>
     </BrowserRouter>
   );
