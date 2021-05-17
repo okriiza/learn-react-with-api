@@ -21,7 +21,7 @@ const NavbarHome = (props) => {
                <NavbarBrand href="/">reactstrap</NavbarBrand>
                <NavbarToggler onClick={toggle} />
                <Collapse isOpen={isOpen} navbar>
-                  <Nav className="ml-auto" navbar>
+                  <Nav className="" navbar>
                      <NavItem>
                         <NavLink href="/">home</NavLink>
                      </NavItem>
@@ -35,7 +35,10 @@ const NavbarHome = (props) => {
                         <NavLink href="/kelas">class</NavLink>
                      </NavItem>
                      <NavItem>
-                        <NavLink href="/hooks">hooks</NavLink>
+                        <NavLink href="/hooks">hooks usestate</NavLink>
+                     </NavItem>
+                     <NavItem>
+                        <NavLink href="/useeffect">hooks useeffect</NavLink>
                      </NavItem>
                   </Nav>
                </Collapse>

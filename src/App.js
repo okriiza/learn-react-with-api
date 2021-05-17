@@ -9,6 +9,7 @@ import Tambahmahasiswa from './dataapi/tambahmahasiswa';
 import Editmahasiswa from './dataapi/editmahasiswa';
 import Claascom from './hooks/class/claascom';
 import Funcom from './hooks/functional/funcom';
+import Useeffect from './hooks/functional/useeffect';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route exact path='/mahasiswa/edit' component={Editmahasiswa} />
         <Route exact path='/kelas' component={Claascom} />
         <Route exact path='/hooks' component={Funcom} />
+        <Route exact path='/useeffect' component={Useeffect} />
       </switch>
     </BrowserRouter>
   );
