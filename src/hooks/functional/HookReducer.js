@@ -1,33 +1,12 @@
-import React, { useReducer } from "react";
+import React, { useContext } from "react";
 import { Button, Card, CardImg, Col, Container, Row } from "reactstrap";
-
-const initialState = {
-  jumlah: 1,
-  hargasatuan: 300000,
-  hargatotal: 300000
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "tambah":
-      return {
-        ...state,
-        jumlah: state.jumlah + 1,
-        hargatotal: state.hargasatuan + (state.hargasatuan * state.jumlah)
-      };
-    case "kurang":
-      return {
-        ...state,
-        jumlah: state.jumlah - 1,
-        hargatotal: (state.hargasatuan * state.jumlah) - state.hargasatuan
-      };
-    default:
-      return state;
-  }
-};
+import {NavLink} from "react-router-dom"
+import { keranjangContext } from "../../App";
 
 export default function HookReducer() {
-  const [count, dispatch] = useReducer(reducer, initialState);
+
+  const countContex = useContext(keranjangContext)
+
   return (
     <Container>
       <Row className="mt-5">
@@ -44,23 +23,25 @@ export default function HookReducer() {
         <Col xs="6">
           <h2>Pakaian pria macho</h2>
           <p>Harga</p>
-          <h3>Rp. 300.000</h3>
+          <h3>Rp. {countContex.keranjangState.hargatotal }</h3>
           <Row>
             <Col>
               <Button
-                onClick={() => dispatch({ type: "kurang" })}
+                onClick={() => countContex.keranjangDispatch({ type: "kurang" })}
                 color="danger"
               >
                 -
               </Button>
-              <small className="p-4">{count.jumlah}</small>
-              <Button onClick={() => dispatch({ type: "tambah" })}>+</Button>
+              <small className="p-4">{countContex.keranjangState.jumlah}</small>
+              <Button onClick={() => countContex.keranjangDispatch({ type: "tambah" })}>+</Button>
             </Col>
           </Row>
           <br />
           <Button color="success" size="lg">
-            Rp. {count.hargatotal}
+            Rp. {countContex.keranjangState.hargatotal}
           </Button>
+          <hr />
+          <NavLink to="/tagihan">Tagihan Belanja</NavLink>
         </Col>
       </Row>
     </Container>
